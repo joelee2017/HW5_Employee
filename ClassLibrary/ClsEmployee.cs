@@ -12,7 +12,7 @@ namespace ClassLibrary
     }
      
 
-    class ClsEmployee : IDisposable, IComparable<ClsEmployee>
+    public class ClsEmployee : IDisposable, IComparable<ClsEmployee>
     {
 
         public string EmpName { get; set; }
@@ -41,6 +41,11 @@ namespace ClassLibrary
         public void Dispose()
         {
             GC.SuppressFinalize(this);
+        }
+
+        ~ClsEmployee()
+        {
+            this.Dispose();
         }
     }
 }
